@@ -38,7 +38,10 @@ class WhatsApp {
   /// Send the template to the client.
   /// [to] is the phone number with country code but without the plus (+) sign.
   /// [templateName] is the template name.
-  Future messagesTemplate({int? to, String? templateName}) async {
+  Future messagesTemplate(
+      {int? to,
+      String? templateName,
+      List<Map<String, String>>? parameters}) async {
     var url = 'https://graph.facebook.com/v14.0/$_fromNumberId/messages';
     Uri uri = Uri.parse(url);
 
@@ -49,25 +52,10 @@ class WhatsApp {
       "template": {
         "name": templateName,
         "language": {"code": "zh_CN"},
-        "components": [
-          {
-            "type": "body",
-            "parameters": [
-              {
-                "type": "text",
-                "text": "aaa"
-              },
-              {
-                "type": "text",
-                "text": "bbb"
-              },
-              {
-                "type": "text",
-                "text": "ccc"
-              }
-            ]
-          }
-        ]
+        if (parameters != null)
+          "components": [
+            {"type": "body", "parameters": parameters}
+          ]
       }
     };
 
