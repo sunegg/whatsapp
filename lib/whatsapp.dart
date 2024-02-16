@@ -48,7 +48,26 @@ class WhatsApp {
       "type": "template",
       "template": {
         "name": templateName,
-        "language": {"code": "zh_CN"}
+        "language": {"code": "zh_CN"},
+        "components":[
+          {
+            "type":"HEADER",
+            "parameters":[
+              {
+                "type": "text",
+                "text": "aaa"
+              },
+              {
+                "type": "text",
+                "text": "bbb"
+              },
+              {
+                "type": "text",
+                "text": "ccc"
+              }
+            ]
+          }
+        ]
       }
     };
 
