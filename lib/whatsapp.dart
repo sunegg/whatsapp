@@ -49,10 +49,10 @@ class WhatsApp {
       "template": {
         "name": templateName,
         "language": {"code": "zh_CN"},
-        "components":[
+        "components": [
           {
-            "type":"HEADER",
-            "parameters":[
+            "type": "body",
+            "parameters": [
               {
                 "type": "text",
                 "text": "aaa"
